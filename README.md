@@ -9,5 +9,5 @@
 
 ### My Udacity second project Weather-Journal-App
 <img
-  src="https://github.com/AhmedYehia90/Landing-Page-Project/blob/main/preview.JPG"
+  src="https://github.com/AhmedYehia90/ Weather-Journal-App/blob/main/preview.JPG"
   style="display: inline-block; margin: 0 auto; max-width: 100px; max-height: 100px">
