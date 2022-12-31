@@ -46,7 +46,7 @@ const hostname = "127.0.0.1";
 
 // function to test the server 
 const listening = () =>
-console.log(`Server running at http://${hostname}:${port}/`);
+console.log(`Server running at https://${hostname}:${port}/`);
 
 // spin up the server
 app.listen(port, listening);
