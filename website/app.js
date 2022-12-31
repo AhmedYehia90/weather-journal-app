@@ -12,7 +12,7 @@ const baseURL = "https://api.openweathermap.org/data/2.5/weather?zip=";
 const apiKey = ",&appid=0f6739781d6efad5bbf6599818e2d675&units=metric";
 
 // the URL of the server to post data
-const server = "http://127.0.0.1:4000";
+const server = "https://127.0.0.1:4000";
 
 // showing the error to the user
 const error = document.getElementById("error");
