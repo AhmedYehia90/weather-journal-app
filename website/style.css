@@ -6,7 +6,9 @@ body {
     margin: 0;
     font-family: 'Open Sans', sans-serif;
     background: #222;
-    background-image: url('https://source.unsplash.com/1600x900/?collections/1408037/weather');
+    background-image: url("../images//bg/03.jpg"), url("../images //bg/02.jpg");
+    ;
+    background-size: cover;
     font-size: 120%;
 }
 
@@ -17,7 +19,7 @@ body {
     padding: 2em;
     border-radius: 30px;
     width: 100%;
-    max-width: 420px;
+    max-width: 520px;
     margin: 1em;
 }
 
@@ -31,7 +33,7 @@ body {
 #entry {
     width: 100%;
     background: #7c7c7c2b;
-    margin: 5px auto;
+    margin: 5px 5px;
     border-radius: 10px;
     height: 200px;
     opacity: 0;
@@ -45,7 +47,7 @@ body {
     height: 80%;
     display: grid;
     grid-template-rows: 60%;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 1fr 30% 35%;
     font-size: 1em;
 }
 
@@ -55,7 +57,7 @@ body {
     font-size: large;
     width: 52%;
     text-align: center;
-    margin: 0px auto 12px;
+    margin: 0px auto 0px;
     border-radius: 1px 0px 30px 30px;
     display: block;
 }
@@ -67,16 +69,32 @@ body {
 
 
 #temp,
-#city {
+#city,
+#icon {
     font-size: 2em;
     margin: 0;
     margin-bottom: 0.4em;
 }
 
+
+#icon .img-fluid {
+    position: relative;
+    max-width: 100%;
+    height: 50px;
+}
+
+#icon img {
+    max-width: 75px;
+}
+
+.cloudy-img {
+    margin: 0;
+}
+
 #content {
     text-align: center;
     text-transform: capitalize;
-    margin-left: 8px;
+    margin-left: 5px;
 }
 
 .headline {
@@ -91,7 +109,7 @@ body {
 }
 
 .title {
-    padding: 10px;
+    padding: 5px;
     text-align: center;
     font-size: 17px;
 }
