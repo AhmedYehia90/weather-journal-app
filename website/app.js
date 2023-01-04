@@ -1,16 +1,17 @@
 // Personal API Key for OpenWeatherMap API
-const baseURL = "https://api.openweathermap.org/data/2.5/weather?zip=";
-const apiKey = ",&appid=0f6739781d6efad5bbf6599818e2d675&units=metric";
-const server = "http://127.0.0.1:4000";
-const error = document.getElementById("error");
-// date
-let d = new Date();
-let newDate = d.getDate() + '.' + d.getMonth() + '1' + '.' + d.getFullYear();
+let baseURL = "https://api.openweathermap.org/data/2.5/weather?zip=";
+let apiKey = ",&appid=0f6739781d6efad5bbf6599818e2d675&units=metric";
+let server = "http://127.0.0.1:8000";
+let error = document.getElementById("error");
+// the Date 
+//January is 0, so I add 1
+let today = new Date();
+let dayDate = today.getDate() + '/' + today.getMonth() + '1' + '/' + today.getFullYear();
 // Event listener to add function to existing HTML DOM element
-const generateData = () => { 
+const sendData = () => { 
   const zip = document.getElementById("zip").value;
   const feelings = document.getElementById("feelings").value;
-  getWeatherData(zip).then((data) => {
+  getnewData(zip).then((data) => {
     if (data) {
       const {
         main: { temp },
@@ -18,23 +19,23 @@ const generateData = () => {
         weather: [{ description, icon }],
       } = data;
       const info = {
-        newDate,
+        dayDate,
         city,
         temp: Math.round(temp),
         icon,
         description,
         feelings,
       };
-      postData(server + "/add", info);
-      updatingUI();
+      post_Data(server + "/add", info);
+      update_AppUI();
       document.getElementById('entry').style.opacity = 1;
     }
   });
 };
 // Function called by event listener
-document.getElementById("generate").addEventListener("click", generateData);
+document.getElementById("generate").addEventListener("click", sendData);
 //Function to GET Web API Data
-const getWeatherData = async (zip) => {
+const getnewData = async (zip) => {
   try {
     const res = await fetch(baseURL + zip + apiKey);
     const data = await res.json();
@@ -50,7 +51,7 @@ const getWeatherData = async (zip) => {
   }
 };
 // Function to POST data
-const postData = async (url = "", info = {}) => {
+const post_Data = async (url = "", info = {}) => {
   const res = await fetch(url, {
     method: "POST",
     headers: {
@@ -62,22 +63,18 @@ const postData = async (url = "", info = {}) => {
     const newData = await res.json();
     console.log(`You just saved`, newData);
     return newData;
-  } catch (error) {
-    console.log(error);
-  }
+  } catch (error) {console.log(error);}
 };
 /* Function to GET Project Data */
-const updatingUI = async () => {
+const update_AppUI = async () => {
   const res = await fetch(server + "/all");
   try {
     const savedData = await res.json();
-    document.getElementById("date").innerHTML = savedData.newDate;
-    document.getElementById("city").innerHTML = savedData.city;
     document.getElementById("temp").innerHTML = savedData.temp + '&degC';
     document.getElementById("icon").src = "https://openweathermap.org/img/wn/"+ icon +"@2x.png";
+    document.getElementById("city").innerHTML = savedData.city;
     document.getElementById("description").innerHTML = savedData.description;
+    document.getElementById("date").innerHTML = savedData.dayDate;
     document.getElementById("content").innerHTML = savedData.feelings;
-  } catch (error) {
-    console.log(error);
-  }
+  } catch (error) {console.log(error);}
 };
