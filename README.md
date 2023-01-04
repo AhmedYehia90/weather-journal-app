@@ -18,9 +18,9 @@
 
 # Most of the codes are from the explanations in their own section
 
-## Professional Front-End Web Development In Udacity
+### Professional Front-End Web Development In Udacity
 
-### Web API's and Asynchronous Applications
+- Web API's and Asynchronous Applications
 
 ## My Udacity second project Weather-Journal-App
 
