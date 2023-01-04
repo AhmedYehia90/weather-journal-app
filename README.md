@@ -16,6 +16,8 @@
 
 - Dynamically Update UI
 
+# Most of the codes are from the explanations in their own section
+
 ### My Udacity second project Weather-Journal-App
 
 ### Preview
